@@ -13,6 +13,10 @@
   &:hover {
     transform: scale(1.05);
   }
+  h1 {
+    font-size: 18px; /* Increased font size for movie name */
+    margin-bottom: 8px;
+  }
 
   h2 {
     font-size: 16px; /* Decreased font size for title */

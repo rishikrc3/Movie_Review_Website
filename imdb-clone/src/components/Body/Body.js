@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBar from "./SearchBar/SearchBar";
 import MovieCard from "./Movie_Card/MovieCard";
-import { moviesList } from "../Constants/Constant";
+import { moviesList } from "../Utils/Constant";
 import "./Body.css";
 const Body = () => {
   return (
