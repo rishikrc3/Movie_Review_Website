@@ -1,16 +1,15 @@
 import React from "react";
 import "./MovieCard.css";
 
-const MovieCard = () => {
+const MovieCard = (props) => {
+  const { moviesData } = props;
+  // console.log(moviesData.Title);
+
   return (
     <div className="imdb-card">
-      <h1>Jaws</h1>
-      <h2>1975</h2>
-      <img
-        className="movie-logo"
-        src="https://m.media-amazon.com/images/M/MV5BMmVmODY1MzEtYTMwZC00MzNhLWFkNDMtZjAwM2EwODUxZTA5XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
-        alt="img"
-      />
+      <h1>{moviesData.Title}</h1>
+      <h2>{moviesData.Year}</h2>
+      <img className="movie-logo" src={moviesData.Poster} alt="img" />
     </div>
   );
 };
