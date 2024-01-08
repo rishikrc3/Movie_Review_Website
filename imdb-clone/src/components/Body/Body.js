@@ -11,7 +11,9 @@ const Body = () => {
       </div>
 
       <div className="movie-cards">
-        <MovieCard moviesData={moviesList} />
+        {moviesList.map((movieList) => (
+          <MovieCard moviesData={movieList} />
+        ))}
       </div>
     </div>
   );
