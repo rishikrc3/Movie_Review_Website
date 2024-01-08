@@ -12,7 +12,7 @@ const Body = () => {
 
       <div className="movie-cards">
         {moviesList.map((movieList) => (
-          <MovieCard moviesData={movieList} />
+          <MovieCard moviesData={movieList} key={movieList.imdbID} />
         ))}
       </div>
     </div>
