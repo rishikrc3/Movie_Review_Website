@@ -7,3 +7,32 @@
   display: flex;
   flex-wrap: wrap;
 }
+.SearchBar {
+  display: flex;
+  align-items: center;
+  margin: 16px;
+}
+
+input {
+  padding: 8px;
+  width: 50%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+.Search-Button {
+  height: 58px; /* Set the height to match the search bar */
+  padding: 0 12px; /* Adjust padding as needed */
+  background-color: #6495ed; /* Blue color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Hover effect */
+.Search-Button:hover {
+  background-color: #4169e1; /* Darker blue color on hover */
+}

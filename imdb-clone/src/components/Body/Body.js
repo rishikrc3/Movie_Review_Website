@@ -1,12 +1,11 @@
 import React from "react";
-import SearchBar from "./SearchBar/SearchBar";
 import MovieCard from "./Movie_Card/MovieCard";
-import { moviesList } from "../Utils/Constant";
 import { useState, useEffect } from "react";
 import "./Body.css";
 import ShimmerUI from "./Movie_Card/ShimmerUI";
 const Body = () => {
   const [listOfMovies, setListofMovies] = useState([]);
+  const [movieName, setMovieName] = useState("Harry");
 
   useEffect(() => {
     fetchData();
@@ -14,7 +13,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.omdbapi.com/?apikey=66263dea&s=jaws#"
+      "https://www.omdbapi.com/?apikey=66263dea&s=" + movieName + "#"
     );
 
     const json = await data.json();
@@ -38,8 +37,15 @@ const Body = () => {
 
   return (
     <div className="Body">
-      <div className="Search">
-        <SearchBar />
+      <div className="SearchBar">
+        <input
+          type="text"
+          value={movieName}
+          onChange={(e) => setMovieName(e.target.value)}
+        />
+        <button className="Search-Button">
+          <h2>Search</h2>
+        </button>
       </div>
 
       <div className="movie-cards">
