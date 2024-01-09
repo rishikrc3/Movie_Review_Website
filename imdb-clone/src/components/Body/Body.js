@@ -17,7 +17,7 @@ const Body = () => {
     );
 
     const json = await data.json();
-    console.log(json.Search[1].Title);
+    //console.log(json.Search[1].Title);
     setTimeout(() => {
       setListofMovies(json.Search);
     }, 1000);
