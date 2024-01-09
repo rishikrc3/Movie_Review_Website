@@ -4,8 +4,9 @@ import MovieCard from "./Movie_Card/MovieCard";
 import { moviesList } from "../Utils/Constant";
 import { useState, useEffect } from "react";
 import "./Body.css";
+import ShimmerUI from "./Movie_Card/ShimmerUI";
 const Body = () => {
-  const [listOfMovies, setListofMovies] = useState(moviesList);
+  const [listOfMovies, setListofMovies] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -18,9 +19,22 @@ const Body = () => {
 
     const json = await data.json();
     console.log(json.Search[1].Title);
-
-    setListofMovies(json.Search);
+    setTimeout(() => {
+      setListofMovies(json.Search);
+    }, 2000);
   };
+  if (listOfMovies.length === 0) {
+    return (
+      <div className="ShimmerCards">
+        <ShimmerUI />
+        <ShimmerUI />
+        <ShimmerUI />
+        <ShimmerUI />
+        <ShimmerUI />
+        <ShimmerUI />
+      </div>
+    );
+  }
 
   return (
     <div className="Body">
