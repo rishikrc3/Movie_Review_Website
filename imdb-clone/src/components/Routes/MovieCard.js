@@ -20,9 +20,14 @@ const MovieCard = () => {
   if (movieData === null) return <>Loading</>;
   return (
     <>
-      <div className="img">
-        <img src={movieData.Poster} alt="hi" />
-        {movieData.Title}
+      <div className="movie-card-setup">
+        <div className="movie-card">
+          <img src={movieData.Poster} alt="hi" />
+        </div>
+        <div>
+          <h1>{movieData.Title}</h1>
+          <h2>{movieData.Year}</h2>
+        </div>
       </div>
     </>
   );
