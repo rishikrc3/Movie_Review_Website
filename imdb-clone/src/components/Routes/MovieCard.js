@@ -1,20 +1,23 @@
 import React from "react";
 import "./Routes.css";
-import { useState, useEffect, useParams } from "react";
+import { useState, useEffect } from "react";
+
+import { useParams } from "react-router-dom";
 
 const MovieCard = () => {
   const [movieData, setMovieData] = useState(null);
-
+  const data = useParams();
+  const { imdbID } = data;
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.omdbapi.com/?apikey=66263dea&i=tt1285016#"
+      "https://www.omdbapi.com/?apikey=66263dea&i=" + imdbID + "#"
     );
     const jsonData = await data.json();
-    console.log(jsonData.Title);
+    console.log(imdbID);
     setMovieData(jsonData);
   };
   if (movieData === null) return <>Loading</>;
