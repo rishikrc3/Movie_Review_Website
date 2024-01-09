@@ -33,3 +33,24 @@
     border-radius: 8px; /* Optional: Rounded corners for the image */
   }
 }
+.Shimmer-UI {
+  width: 200px; /* Set a specific width for each card */
+  height: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 16px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}

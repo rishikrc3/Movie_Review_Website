@@ -1,6 +1,5 @@
 import React from "react";
 import "./MovieCard.css";
-
 const MovieCard = (props) => {
   const { moviesData } = props;
   // console.log(moviesData.Title);
