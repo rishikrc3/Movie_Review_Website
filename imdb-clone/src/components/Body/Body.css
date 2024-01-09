@@ -36,3 +36,7 @@ input {
 .Search-Button:hover {
   background-color: #4169e1; /* Darker blue color on hover */
 }
+.custom-link {
+  text-decoration: none;
+  color: inherit; /* Ensure that link color matches the parent's color */
+}

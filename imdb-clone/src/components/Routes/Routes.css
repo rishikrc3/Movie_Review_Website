@@ -23,4 +23,36 @@
 
 .movie-card-setup {
   display: flex;
+  margin: 16px;
+}
+.movie-details {
+  padding: 16px;
+}
+
+.movie-details h3 {
+  margin: 8px 0;
+}
+
+/* Additional styling for a clean look */
+.movie-details h3 {
+  font-size: 16px;
+  color: #333;
+}
+
+.movie-details p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .movie-card-setup {
+    flex-direction: column;
+  }
+
+  .movie-card {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
 }

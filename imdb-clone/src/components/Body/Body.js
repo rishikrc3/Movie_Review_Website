@@ -3,6 +3,7 @@ import MovieCard from "./Movie_Card/MovieCard";
 import { useState, useEffect } from "react";
 import "./Body.css";
 import ShimmerUI from "./Movie_Card/ShimmerUI";
+import { Link } from "react-router-dom";
 const Body = () => {
   const [listOfMovies, setListofMovies] = useState([]);
   const [movieName, setMovieName] = useState("Harry");
@@ -54,7 +55,9 @@ const Body = () => {
 
       <div className="movie-cards">
         {listOfMovies.map((listOfMovie) => (
-          <MovieCard moviesData={listOfMovie} key={listOfMovie.imdbID} />
+          <Link to={"/movies/" + listOfMovie.imdbID} className="custom-link">
+            <MovieCard moviesData={listOfMovie} key={listOfMovie.imdbID} />
+          </Link>
         ))}
       </div>
     </div>
