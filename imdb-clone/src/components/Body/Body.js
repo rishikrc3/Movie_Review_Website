@@ -35,6 +35,10 @@ const Body = () => {
     );
   }
 
+  const handleClick = () => {
+    fetchData();
+  };
+
   return (
     <div className="Body">
       <div className="SearchBar">
@@ -43,7 +47,7 @@ const Body = () => {
           value={movieName}
           onChange={(e) => setMovieName(e.target.value)}
         />
-        <button className="Search-Button">
+        <button className="Search-Button" onClick={handleClick}>
           <h2>Search</h2>
         </button>
       </div>
