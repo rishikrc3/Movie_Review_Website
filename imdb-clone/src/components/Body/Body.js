@@ -20,7 +20,7 @@ const Body = () => {
     console.log(json.Search[1].Title);
     setTimeout(() => {
       setListofMovies(json.Search);
-    }, 2000);
+    }, 1000);
   };
   if (listOfMovies.length === 0) {
     return (
