@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-
+import "./Routes.css";
 const User = () => {
   const [userData, setUserData] = useState([]);
   useEffect(() => {
@@ -22,7 +22,7 @@ const User = () => {
           <img src={userData.avatar_url} alt="" />
         </div>
         <div className="user-info">
-          <h1>Hi my name is :{userData.name}</h1>
+          <h1>Hi my name is: {userData.name}</h1>
           <h1>{userData.login}@gmail.com</h1>
           <h2>
             I made this website, absolutely enjoyed it , if you got an

@@ -59,4 +59,32 @@
 
 .user-card {
   display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 16px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+.user-img img {
+  max-width: 100px; /* Set the maximum width for the user image */
+  height: auto; /* Maintain the image's aspect ratio */
+  border-radius: 50%; /* Make the image a circle */
+  margin-right: 16px; /* Add some margin to separate image from text */
+}
+
+.user-info h1 {
+  font-size: 18px; /* Adjust font size for user name and login */
+  margin-bottom: 8px;
+}
+
+.user-info h2 {
+  font-size: 14px; /* Adjust font size for description */
+  color: #555;
 }
