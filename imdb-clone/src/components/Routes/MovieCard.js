@@ -1,5 +1,5 @@
 import React from "react";
-import "./Routes.css";
+
 import useMovieCard from "../Utils/useMovieCard";
 
 import { useParams } from "react-router-dom";
@@ -12,18 +12,33 @@ const MovieCard = () => {
   if (movieData === null) return <>Loading</>;
   return (
     <>
-      <div className="movie-card-setup">
-        <div className="movie-card">
-          <img src={movieData.Poster} alt="hi" />
+      <div className="movie-card-setup flex items-center space-x-4">
+        <div className="m-9">
+          <div className="movie-card shadow-md rounded-md overflow-hidden bg-white transition-transform duration-300 transform hover:scale-105">
+            <img src={movieData.Poster} alt="hi" className=" object-cover" />
+          </div>
         </div>
-        <div>
-          <h3>Movie Name : {movieData.Title}</h3>
-          <h3>Released: {movieData.Released}</h3>
-          <h3>Runtime: {movieData.Runtime}</h3>
-          <h3>Genre: {movieData.Genre}</h3>
-          <h3>Director: {movieData.Director}</h3>
-          <h3>Awards; {movieData.Awards}</h3>
-          <h3>Plot: {movieData.Plot}</h3>
+
+        <div className="flex flex-col">
+          <h3 className="text-2xl font-bold mb-2">{movieData.Title}</h3>
+          <p className="text-sm text-gray-600 mb-2">{movieData.Genre}</p>
+          <div className="grid grid-cols-2 gap-2 mb-2">
+            <div>
+              <strong>Released:</strong> {movieData.Released}
+            </div>
+            <div>
+              <strong>Runtime:</strong> {movieData.Runtime}
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-2 mb-2">
+            <div>
+              <strong>Director:</strong> {movieData.Director}
+            </div>
+            <div>
+              <strong>Awards:</strong> {movieData.Awards}
+            </div>
+          </div>
+          <p className="text-sm">{movieData.Plot}</p>
         </div>
       </div>
     </>

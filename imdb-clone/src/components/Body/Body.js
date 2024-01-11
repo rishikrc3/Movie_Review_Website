@@ -1,7 +1,6 @@
 import React from "react";
 import MovieCard from "./Movie_Card/MovieCard";
 import { useState, useEffect } from "react";
-import "./Body.css";
 import ShimmerUI from "./Movie_Card/ShimmerUI";
 import { Link } from "react-router-dom";
 const Body = () => {
@@ -24,7 +23,7 @@ const Body = () => {
   };
   if (listOfMovies.length === 0) {
     return (
-      <div className="ShimmerCards">
+      <div className="ShimmerCards flex">
         <ShimmerUI />
         <ShimmerUI />
         <ShimmerUI />
@@ -41,18 +40,22 @@ const Body = () => {
 
   return (
     <div className="Body">
-      <div className="SearchBar">
+      <div className="SearchBar bg-gray-100 px-4 py-3 flex items-center ">
         <input
           type="text"
           value={movieName}
           onChange={(e) => setMovieName(e.target.value)}
+          className="p-2 border border-gray-300 rounded-md focus: outline-double w-1/2"
         />
-        <button className="Search-Button" onClick={handleClick}>
+        <button
+          className="Search-Button  bg-pink-300 text-white px-4 py-3 rounded-md ml-4 transition duration-300 hover:bg-pink-500"
+          onClick={handleClick}
+        >
           <h2>Search</h2>
         </button>
       </div>
 
-      <div className="movie-cards">
+      <div className="movie-cards flex flex-wrap ">
         {listOfMovies.map((listOfMovie) => (
           <Link to={"/movies/" + listOfMovie.imdbID} className="custom-link">
             <MovieCard moviesData={listOfMovie} key={listOfMovie.imdbID} />
