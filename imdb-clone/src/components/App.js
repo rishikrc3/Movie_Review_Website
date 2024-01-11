@@ -1,4 +1,3 @@
-import "./App.css";
 import Header from "./Header/Header";
 import ContactUs from "./Routes/ContactUs";
 import { Outlet } from "react-router-dom";
