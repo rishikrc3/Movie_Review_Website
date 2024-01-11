@@ -23,13 +23,15 @@ const Body = () => {
   };
   if (listOfMovies.length === 0) {
     return (
-      <div className="ShimmerCards flex">
-        <ShimmerUI />
-        <ShimmerUI />
-        <ShimmerUI />
-        <ShimmerUI />
-        <ShimmerUI />
-        <ShimmerUI />
+      <div className="ShimmerCards flex flex-wrap">
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+          <div
+            key={index}
+            className="Shimmer-UI w-48 h-64 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 animate-pulse shadow-md rounded-md overflow-hidden m-2"
+          >
+            {/* Content goes here (optional) */}
+          </div>
+        ))}
       </div>
     );
   }
