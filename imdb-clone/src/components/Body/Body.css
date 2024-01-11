@@ -24,8 +24,8 @@ input {
 .Search-Button {
   height: 58px; /* Set the height to match the search bar */
   padding: 0 12px; /* Adjust padding as needed */
-  background-color: #6495ed; /* Blue color */
-  color: #fff; /* White text color */
+  background-color: #ffffff; /* Blue color */
+  color: #0e51ce; /* White text color */
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -34,7 +34,7 @@ input {
 
 /* Hover effect */
 .Search-Button:hover {
-  background-color: #4169e1; /* Darker blue color on hover */
+  background-color: #c0c1c4; /* Darker blue color on hover */
 }
 .custom-link {
   text-decoration: none;

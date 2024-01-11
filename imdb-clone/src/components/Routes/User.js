@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import "./Routes.css";
+import img from "../logo/Pic.jpg";
 const User = () => {
   const [userData, setUserData] = useState([]);
   useEffect(() => {
@@ -14,16 +15,20 @@ const User = () => {
     setUserData(json);
     console.log(json.name);
   };
+
+  /**
+   * The API call was made just to practice, github api does not have unlimited api calls, so I am removing them and using hardcoded values
+   */
   if (userData == null) return <>Loading</>;
   return (
     <>
       <div className="user-card">
         <div className="user-img">
-          <img src={userData.avatar_url} alt="" />
+          <img src={img} alt="" />
         </div>
         <div className="user-info">
-          <h1>Hi my name is: {userData.name}</h1>
-          <h1>{userData.login}@gmail.com</h1>
+          <h1>Hi my name is, Rishik</h1>
+          <h1>rishik@gmail.com</h1>
           <h2>
             I made this website, absolutely enjoyed it , if you got an
             improvements, drop me a mail{" "}
