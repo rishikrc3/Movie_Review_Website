@@ -7,17 +7,20 @@ const Accordion = ({ actors, imdbRating }) => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="accordion py-4 border  border-gray-300 rounded-md mb-4">
-      <div className="accordion-header flex" onClick={toggleAccordion}>
-        <h3 className="text-2xl font-semibold">Cast</h3>
+    <>
+      <div className="accordion py-4 border  border-gray-300 rounded-md mb-4 shadow-lg">
+        <div className="accordion-header flex" onClick={toggleAccordion}>
+          <h3 className="text-2xl font-semibold">Cast</h3>
 
-        <span className="text-2xl">{isOpen ? "▲" : "▼"}</span>
+          <span className="text-2xl">{isOpen ? "▲" : "▼"}</span>
+        </div>
       </div>
-
-      {isOpen && (
-        <div className="accordion-content bg-white-300 p-3">{actors}</div>
-      )}
-    </div>
+      <div>
+        {isOpen && (
+          <div className="accordion-content bg-white-300 p-3">{actors}</div>
+        )}
+      </div>
+    </>
   );
 };
 
