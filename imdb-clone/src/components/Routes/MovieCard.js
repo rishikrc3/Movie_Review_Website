@@ -1,7 +1,7 @@
 import React from "react";
 
 import useMovieCard from "../Utils/useMovieCard";
-
+import Accordion from "./Accordion";
 import { useParams } from "react-router-dom";
 
 const MovieCard = () => {
@@ -39,6 +39,11 @@ const MovieCard = () => {
             </div>
           </div>
           <p className="text-sm">{movieData.Plot}</p>
+
+          <Accordion
+            actors={movieData.Actors}
+            imdbRating={movieData.imdbRating}
+          />
         </div>
       </div>
     </>
