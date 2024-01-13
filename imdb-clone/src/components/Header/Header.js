@@ -42,7 +42,7 @@ const Header = () => {
               to="/contactus"
               className="custom-link text-white font-semibold text-lg"
             >
-              Bucket List
+              Wish List
             </Link>
           </li>
         </ul>

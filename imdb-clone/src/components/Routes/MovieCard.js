@@ -10,7 +10,7 @@ const MovieCard = () => {
 
   const movieData = useMovieCard(imdbID);
 
-  const [isAddedToWishList, setIsAddedToWishList] = useState(true);
+  const [isAddedToWishList, setIsAddedToWishList] = useState(false);
 
   const handleAddtoWishList = () => {
     setIsAddedToWishList((prevValue) => !prevValue);

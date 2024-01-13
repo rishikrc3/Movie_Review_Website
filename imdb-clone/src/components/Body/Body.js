@@ -5,7 +5,7 @@ import ShimmerUI from "./Movie_Card/ShimmerUI";
 import { Link } from "react-router-dom";
 const Body = () => {
   const [listOfMovies, setListofMovies] = useState([]);
-  const [movieName, setMovieName] = useState("Harry");
+  const [movieName, setMovieName] = useState("Attack on Titan");
 
   useEffect(() => {
     fetchData();
