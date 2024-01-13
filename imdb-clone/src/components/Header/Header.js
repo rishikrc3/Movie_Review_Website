@@ -1,8 +1,10 @@
 import React from "react";
 import img from "../logo/logo.jpg";
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 const Header = () => {
+  //subscribing to the times.
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="flex items-center justify-between p-4 m-1  bg-pink-300 shadow-xl">
       <div className="w-40">
@@ -42,7 +44,7 @@ const Header = () => {
               to="/contactus"
               className="custom-link text-white font-semibold text-lg"
             >
-              Wish List
+              Wish List🛒{cartItems.length}
             </Link>
           </li>
         </ul>
