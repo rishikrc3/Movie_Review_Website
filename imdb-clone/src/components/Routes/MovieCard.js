@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useState } from "react";
 import useMovieCard from "../Utils/useMovieCard";
 import Accordion from "./Accordion";
 import { useParams } from "react-router-dom";
@@ -9,6 +9,12 @@ const MovieCard = () => {
   const { imdbID } = data;
 
   const movieData = useMovieCard(imdbID);
+
+  const [isAddedToWishList, setIsAddedToWishList] = useState(true);
+
+  const handleAddtoWishList = () => {
+    setIsAddedToWishList((prevValue) => !prevValue);
+  };
   if (movieData === null) return <>Loading</>;
   return (
     <>
@@ -16,6 +22,13 @@ const MovieCard = () => {
         <div className="m-9">
           <div className="movie-card shadow-md rounded-md overflow-hidden bg-white transition-transform duration-300 transform hover:scale-105">
             <img src={movieData.Poster} alt="hi" className=" object-cover" />
+            {}
+            <button
+              onClick={handleAddtoWishList}
+              className="absolute bottom-0 left-0 p-2 bg-pink-500 text-white hover:bg-pink-600 transition duration-300"
+            >
+              {isAddedToWishList ? "Remove from Wishlist" : "Add to Wishlist"}
+            </button>
           </div>
         </div>
 
