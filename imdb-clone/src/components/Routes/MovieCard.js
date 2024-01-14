@@ -3,7 +3,8 @@ import { useState } from "react";
 import useMovieCard from "../Utils/useMovieCard";
 import Accordion from "./Accordion";
 import { useParams } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { addItem } from "../Utils/cartSlice";
 const MovieCard = () => {
   const data = useParams();
   const { imdbID } = data;
@@ -15,6 +16,12 @@ const MovieCard = () => {
   const handleAddtoWishList = () => {
     setIsAddedToWishList((prevValue) => !prevValue);
   };
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = () => {
+    dispatch(addItem(movieData.Title));
+  };
   if (movieData === null) return <>Loading</>;
   return (
     <>
@@ -24,10 +31,10 @@ const MovieCard = () => {
             <img src={movieData.Poster} alt="hi" className=" object-cover" />
             {}
             <button
-              onClick={handleAddtoWishList}
+              onClick={handleAddItem}
               className="absolute bottom-0 left-0 p-2 bg-pink-500 text-white hover:bg-pink-600 transition duration-300"
             >
-              {isAddedToWishList ? "Remove from Wishlist" : "Add to Wishlist"}
+              {isAddedToWishList ? "Added to WishList" : "Add to Wishlist"}
             </button>
           </div>
         </div>
