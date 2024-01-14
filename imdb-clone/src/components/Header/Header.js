@@ -41,7 +41,7 @@ const Header = () => {
           </li>
           <li>
             <Link
-              to="/contactus"
+              to="/cart"
               className="custom-link text-white font-semibold text-lg"
             >
               Wish List🛒{cartItems.length}

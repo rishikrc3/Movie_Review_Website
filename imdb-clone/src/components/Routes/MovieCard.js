@@ -20,7 +20,7 @@ const MovieCard = () => {
   const dispatch = useDispatch();
 
   const handleAddItem = () => {
-    dispatch(addItem(movieData.Title));
+    dispatch(addItem(movieData));
   };
   if (movieData === null) return <>Loading</>;
   return (
