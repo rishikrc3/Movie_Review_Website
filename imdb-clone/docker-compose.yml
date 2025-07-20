@@ -1,11 +1,49 @@
 services:
-  web:
+  react1:
     build: .
-    ports:
-      - "3000:3000"
     volumes:
       - .:/app
       - node_modules:/app/node_modules
+    environment:
+      - REACT_APP_INSTANCE_NAME=react1
+    networks:
+      - react-network
+
+  react2:
+    build: .
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      - REACT_APP_INSTANCE_NAME=react2
+    networks:
+      - react-network
+  react3:
+    build: .
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      - REACT_APP_INSTANCE_NAME=react3
+    networks:
+      - react-network
+      
+  load-balancer:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - react1
+      - react2
+      - react3
+    networks:
+      - react-network
 
 volumes:
   node_modules:
+
+networks:
+  react-network:
+    driver: bridge

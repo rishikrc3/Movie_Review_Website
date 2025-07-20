@@ -56,7 +56,7 @@ const Body = () => {
           <h2>Search</h2>
         </button>
       </div>
-
+      <h1>Instance: {process.env.REACT_APP_INSTANCE_NAME}</h1>
       <div className="movie-cards flex flex-wrap ">
         {listOfMovies.map((listOfMovie) => (
           <Link to={"/movies/" + listOfMovie.imdbID} className="custom-link">

@@ -14,5 +14,5 @@ COPY . .
 
 EXPOSE 3000
 
-# Start the application
+# Start the application, try a multistage build for production and the load balancer
 CMD ["npm", "start"]
