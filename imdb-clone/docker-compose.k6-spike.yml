@@ -1,0 +1,59 @@
+services:
+  react1:
+    build: .
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      - REACT_APP_INSTANCE_NAME=react1
+    networks:
+      - react-network
+
+  react2:
+    build: .
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      - REACT_APP_INSTANCE_NAME=react2
+    networks:
+      - react-network
+  react3:
+    build: .
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      - REACT_APP_INSTANCE_NAME=react3
+    networks:
+      - react-network
+      
+  load-balancer:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - react1
+      - react2
+      - react3
+    networks:
+      - react-network
+  
+  k6:
+    image: grafana/k6:latest
+    volumes:
+      - ./k6:/scripts
+    entrypoint: ["k6", "run", "/scripts/spike.js"]
+    depends_on:
+      - load-balancer
+    networks:
+      - react-network
+
+volumes:
+  node_modules:
+
+networks:
+  react-network:
+    driver: bridge
