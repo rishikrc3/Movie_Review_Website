@@ -3,8 +3,13 @@ import MovieCard from "./Movie_Card/MovieCard";
 import { useState, useEffect } from "react";
 import ShimmerUI from "./Movie_Card/ShimmerUI";
 import { Link } from "react-router-dom";
+type Movie = {
+  imdbID: string;
+  [key: string]: any;
+};
+
 const Body = () => {
-  const [listOfMovies, setListofMovies] = useState([]);
+  const [listOfMovies, setListofMovies] = useState<Movie[]>([]);
   const [movieName, setMovieName] = useState("Attack on Titan");
 
   useEffect(() => {
