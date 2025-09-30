@@ -4,15 +4,10 @@ import { useState, useEffect } from "react";
 import ShimmerUI from "./Movie_Card/ShimmerUI";
 import { Link } from "react-router-dom";
 import { searchMovies } from "../../services/Api/movieservices";
-type Movie = {
-  imdbID: string;
-  [key: string]: any;
-};
+import { MovieType } from "../../services/types/movietypes";
 
-₹const Body = () => {
-
-  
-  const [listOfMovies, setListofMovies] = useState<Movie[]>([]);
+const Body = () => {
+  const [listOfMovies, setListofMovies] = useState<MovieType[]>([]);
   const [movieName, setMovieName] = useState("Attack on Titan");
 
   useEffect(() => {
@@ -21,9 +16,8 @@ type Movie = {
 
   const fetchData = async () => {
     searchMovies(movieName)
-    .then((response) => 
-    {
-      console.log(response.data)
+    .then((response) => {
+      //console.log(response.data.Search)
       setListofMovies(response.data.Search);
     }).catch((error) => console.error(error));
 
