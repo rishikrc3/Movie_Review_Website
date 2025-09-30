@@ -3,12 +3,15 @@ import MovieCard from "./Movie_Card/MovieCard";
 import { useState, useEffect } from "react";
 import ShimmerUI from "./Movie_Card/ShimmerUI";
 import { Link } from "react-router-dom";
+import { searchMovies } from "../../services/Api/movieservices";
 type Movie = {
   imdbID: string;
   [key: string]: any;
 };
 
-const Body = () => {
+₹const Body = () => {
+
+  
   const [listOfMovies, setListofMovies] = useState<Movie[]>([]);
   const [movieName, setMovieName] = useState("Attack on Titan");
 
@@ -17,14 +20,13 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.omdbapi.com/?apikey=66263dea&s=" + movieName + "#"
-    );
+    searchMovies(movieName)
+    .then((response) => 
+    {
+      console.log(response.data)
+      setListofMovies(response.data.Search);
+    }).catch((error) => console.error(error));
 
-    const json = await data.json();
-    setTimeout(() => {
-      setListofMovies(json.Search);
-    }, 1000);
   };
   if (listOfMovies.length === 0) {
     return (
