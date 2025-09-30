@@ -5,6 +5,8 @@ import ShimmerUI from "./Movie_Card/ShimmerUI";
 import { Link } from "react-router-dom";
 import { searchMovies } from "../../services/Api/movieservices";
 import { MovieType } from "../../services/types/movietypes";
+import { Box, TextField, Button } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 
 const Body = () => {
   const [listOfMovies, setListofMovies] = useState<MovieType[]>([]);
@@ -43,20 +45,39 @@ const Body = () => {
 
   return (
     <div className="Body">
-      <div className="SearchBar bg-gray-100 px-4 py-3 flex items-center ">
-        <input
-          type="text"
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: 2,
+          px: 2,
+          py: 1.5,
+          bgcolor: "grey.100",
+        }}
+      >
+        <TextField
+          fullWidth
+          variant="outlined"
           value={movieName}
           onChange={(e) => setMovieName(e.target.value)}
-          className="p-2 border border-gray-300 rounded-md focus: outline-double w-1/2"
+          placeholder="Search movies..."
+          sx={{ maxWidth: "50%" }}
         />
-        <button
-          className="Search-Button  bg-pink-300 text-white px-4 py-3 rounded-md ml-4 transition duration-300 hover:bg-pink-500"
+        <Button
+          variant="contained"
+          color="primary"
           onClick={handleClick}
+          startIcon={<SearchIcon />}
+          sx={{
+            bgcolor: "#f9a8d4",
+            "&:hover": {
+              bgcolor: "#ec4899",
+            },
+          }}
         >
-          <h2>Search</h2>
-        </button>
-      </div>
+          Search
+        </Button>
+      </Box>
       <h1>Instance: {process.env.REACT_APP_INSTANCE_NAME}</h1>
       <div className="movie-cards flex flex-wrap ">
         {listOfMovies.map((listOfMovie) => (
