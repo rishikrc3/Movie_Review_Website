@@ -5,8 +5,8 @@ import ShimmerUI from "./Movie_Card/ShimmerUI";
 import { Link } from "react-router-dom";
 import { searchMovies } from "../../services/Api/movieservices";
 import { MovieType } from "../../services/types/movietypes";
-import { Box, TextField, Button } from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
+import { Box, TextField, Button, Container } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Body = () => {
   const [listOfMovies, setListofMovies] = useState<MovieType[]>([]);
@@ -18,24 +18,43 @@ const Body = () => {
 
   const fetchData = async () => {
     searchMovies(movieName)
-    .then((response) => {
-      //console.log(response.data.Search)
-      setListofMovies(response.data.Search);
-    }).catch((error) => console.error(error));
-
+      .then((response) => {
+        setListofMovies(response.data.Search);
+      })
+      .catch((error) => console.error(error));
   };
+
   if (listOfMovies.length === 0) {
     return (
-      <div className="ShimmerCards flex flex-wrap">
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
-          <div
-            key={index}
-            className="Shimmer-UI w-48 h-64 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 animate-pulse shadow-md rounded-md overflow-hidden m-2"
-          >
-            {/* Content goes here (optional) */}
-          </div>
-        ))}
-      </div>
+      <Container maxWidth="lg">
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: 2,
+            py: 4,
+          }}
+        >
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+            <Box
+              key={index}
+              sx={{
+                width: 345,
+                height: 450,
+                background:
+                  "linear-gradient(90deg, #e5e7eb 0%, #f3f4f6 50%, #e5e7eb 100%)",
+                borderRadius: 1,
+                animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                "@keyframes pulse": {
+                  "0%, 100%": { opacity: 1 },
+                  "50%": { opacity: 0.5 },
+                },
+              }}
+            />
+          ))}
+        </Box>
+      </Container>
     );
   }
 
@@ -44,49 +63,71 @@ const Body = () => {
   };
 
   return (
-    <div className="Body">
+    <Container maxWidth={false} sx={{ py: 4, px: 2 }}>
+     
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
           gap: 2,
+          mb: 4,
           px: 2,
-          py: 1.5,
-          bgcolor: "grey.100",
         }}
       >
         <TextField
-          fullWidth
           variant="outlined"
           value={movieName}
           onChange={(e) => setMovieName(e.target.value)}
           placeholder="Search movies..."
-          sx={{ maxWidth: "50%" }}
+          sx={{
+            width: "100%",
+            maxWidth: 600,
+          }}
         />
         <Button
           variant="contained"
-          color="primary"
           onClick={handleClick}
           startIcon={<SearchIcon />}
+          size="large"
           sx={{
             bgcolor: "#f9a8d4",
             "&:hover": {
               bgcolor: "#ec4899",
             },
+            minWidth: 120,
+            textTransform: "none",
           }}
         >
           Search
         </Button>
       </Box>
-      <h1>Instance: {process.env.REACT_APP_INSTANCE_NAME}</h1>
-      <div className="movie-cards flex flex-wrap ">
+
+     
+      <Box sx={{ textAlign: "center", mb: 3 }}>
+        <h1>Instance: {process.env.REACT_APP_INSTANCE_NAME}</h1>
+      </Box>
+
+      
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: 2,
+        }}
+      >
         {listOfMovies.map((listOfMovie) => (
-          <Link to={"/movies/" + listOfMovie.imdbID} className="custom-link">
-            <MovieCard moviesData={listOfMovie} key={listOfMovie.imdbID} />
+          <Link
+            to={"/movies/" + listOfMovie.imdbID}
+            key={listOfMovie.imdbID}
+            style={{ textDecoration: "none" }}
+          >
+            <MovieCard moviesData={listOfMovie} />
           </Link>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Container>
   );
 };
 
