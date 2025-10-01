@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { searchMovies } from "../../services/Api/movieservices";
 import { MovieType } from "../../services/types/movietypes";
 import { Box, TextField, Button, Container } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import SearchBar from "./SearchBar/SearchBar";
 
 const Body = () => {
   const [listOfMovies, setListofMovies] = useState<MovieType[]>([]);
@@ -64,51 +64,10 @@ const Body = () => {
 
   return (
     <Container maxWidth={false} sx={{ py: 4, px: 2 }}>
-     
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 2,
-          mb: 4,
-          px: 2,
-        }}
-      >
-        <TextField
-          variant="outlined"
-          value={movieName}
-          onChange={(e) => setMovieName(e.target.value)}
-          placeholder="Search movies..."
-          sx={{
-            width: "100%",
-            maxWidth: 600,
-          }}
-        />
-        <Button
-          variant="contained"
-          onClick={handleClick}
-          startIcon={<SearchIcon />}
-          size="large"
-          sx={{
-            bgcolor: "#f9a8d4",
-            "&:hover": {
-              bgcolor: "#ec4899",
-            },
-            minWidth: 120,
-            textTransform: "none",
-          }}
-        >
-          Search
-        </Button>
-      </Box>
-
-     
+      <SearchBar movieName={movieName} setMovieName={setMovieName} handleClick={handleClick}/>
       <Box sx={{ textAlign: "center", mb: 3 }}>
         <h1>Instance: {process.env.REACT_APP_INSTANCE_NAME}</h1>
-      </Box>
-
-      
+      </Box> 
       <Box
         sx={{
           display: "flex",
