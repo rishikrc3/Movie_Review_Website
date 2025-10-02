@@ -3,11 +3,13 @@ import ContactUs from "./Routes/ContactUs";
 import { Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import wishList from "./Utils/wishList";
+import Navbar from "./Header/Navbar";
+import React from "react";
 function App() {
   return (
     <>
       <Provider store={wishList}>
-        <Header />
+        <Navbar />
         <Outlet />
       </Provider>
     </>

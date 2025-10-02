@@ -1,15 +1,15 @@
 import React from "react";
-import img from "../logo/logo.jpg";
+// import img from '../logo/logo'
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-const Header = () => {
+//import { useSelector } from "react-redux";
+const Header : React.FC = () => {
   //subscribing to the times.
-  const cartItems = useSelector((store) => store.cart.items);
+  //const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="flex items-center justify-between p-4 m-1  bg-pink-300 shadow-xl">
       <div className="w-40">
         <Link to="/">
-          <img src={img} alt="logo-" className="cursor-pointer" />
+          <img src={"ad"} alt="logo-" className="cursor-pointer" />
         </Link>
       </div>
 
@@ -44,7 +44,7 @@ const Header = () => {
               to="/cart"
               className="custom-link text-white font-semibold text-lg"
             >
-              Wish List🛒{cartItems.length}
+              Wish List🛒0
             </Link>
           </li>
         </ul>

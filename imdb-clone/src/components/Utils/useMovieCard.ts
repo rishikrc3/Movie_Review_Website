@@ -5,6 +5,7 @@ const useMovieCard = (imdbID) => {
   useEffect(() => {
     fetchData();
   }, []);
+
   const fetchData = async () => {
     const data = await fetch(
       "https://www.omdbapi.com/?apikey=66263dea&i=" + imdbID + "#"

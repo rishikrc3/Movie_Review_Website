@@ -7,7 +7,7 @@ import Error from "./components/Routes/Error";
 import Body from "./components/Body/Body";
 import ContactUs from "./components/Routes/ContactUs";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MovieCard from "./components/Routes/MovieCard";
+import MovieDetails from "./components/Routes/MovieDetails";
 import Cart from "./components/Cart/Cart";
 const appRouter = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/movies/:imdbID",
-        element: <MovieCard />,
+        element: <MovieDetails />,
       },
       {
         path: "/cart",
