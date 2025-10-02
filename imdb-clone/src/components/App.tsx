@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import wishList from "./Utils/wishList";
 import Navbar from "./Header/Navbar";
+import React from "react";
 function App() {
   return (
     <>
