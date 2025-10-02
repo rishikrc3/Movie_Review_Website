@@ -89,7 +89,7 @@ const MovieDetails = () => {
           bgcolor: "#f5f5f5",
         }}
       >
-        <CircularProgress size={60} sx={{ color: "#f9a8d4" }} />
+        <CircularProgress size={60} sx={{ color: "#1a1a1a" }} />
       </Box>
     );
 
@@ -135,9 +135,9 @@ const MovieDetails = () => {
                   left: 16,
                   right: 16,
                   width: "calc(100% - 32px)",
-                  bgcolor: "#f9a8d4",
+                  bgcolor: "#1a1a1a",
                   "&:hover": {
-                    bgcolor: "#ec4899",
+                    bgcolor: "#333333",
                   },
                   fontWeight: 600,
                   textTransform: "none",
@@ -196,12 +196,12 @@ const MovieDetails = () => {
                 <Stack direction="row" spacing={4} flexWrap="wrap">
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <CalendarTodayIcon
-                      sx={{ color: "#f9a8d4", fontSize: 20 }}
+                      sx={{ color: "#1a1a1a", fontSize: 20 }}
                     />
                     <Box>
                       <Typography
                         variant="caption"
-                        sx={{ color: "#6b7280", display: "block" }}
+                        sx={{ color: "#1a1a1a", display: "block" }}
                       >
                         Released
                       </Typography>
@@ -212,11 +212,11 @@ const MovieDetails = () => {
                   </Box>
 
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <AccessTimeIcon sx={{ color: "#f9a8d4", fontSize: 20 }} />
+                    <AccessTimeIcon sx={{ color: "#1a1a1a", fontSize: 20 }} />
                     <Box>
                       <Typography
                         variant="caption"
-                        sx={{ color: "#6b7280", display: "block" }}
+                        sx={{ color: "#1a1a1a", display: "block" }}
                       >
                         Runtime
                       </Typography>
@@ -227,11 +227,11 @@ const MovieDetails = () => {
                   </Box>
 
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <MovieIcon sx={{ color: "#f9a8d4", fontSize: 20 }} />
+                    <MovieIcon sx={{ color: "#1a1a1a", fontSize: 20 }} />
                     <Box>
                       <Typography
                         variant="caption"
-                        sx={{ color: "#6b7280", display: "block" }}
+                        sx={{ color: "#1a1a1a", display: "block" }}
                       >
                         Director
                       </Typography>
@@ -242,11 +242,11 @@ const MovieDetails = () => {
                   </Box>
 
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <EmojiEventsIcon sx={{ color: "#f9a8d4", fontSize: 20 }} />
+                    <EmojiEventsIcon sx={{ color: "#1a1a1a", fontSize: 20 }} />
                     <Box>
                       <Typography
                         variant="caption"
-                        sx={{ color: "#6b7280", display: "block" }}
+                        sx={{ color: "#1a1a1a", display: "block" }}
                       >
                         Awards
                       </Typography>
@@ -300,7 +300,7 @@ const MovieDetails = () => {
                   },
                 }}
               >
-                <PersonIcon sx={{ color: "#f9a8d4" }} />
+                <PersonIcon sx={{ color: "#1a1a1a" }} />
                 <Typography variant="h6" sx={{ fontWeight: 700 }}>
                   Cast
                 </Typography>
@@ -341,7 +341,7 @@ const MovieDetails = () => {
                     <Box>
                       <Typography
                         variant="body2"
-                        sx={{ color: "#6b7280", mb: 1 }}
+                        sx={{ color: "#1a1a1a", mb: 1 }}
                       >
                         IMDb Rating
                       </Typography>
@@ -367,7 +367,7 @@ const MovieDetails = () => {
                       </Box>
                     </Box>
                     {movieData.imdbVotes && (
-                      <Typography variant="body2" sx={{ color: "#6b7280" }}>
+                      <Typography variant="body2" sx={{ color: "#1a1a1a" }}>
                         {movieData.imdbVotes} votes
                       </Typography>
                     )}
