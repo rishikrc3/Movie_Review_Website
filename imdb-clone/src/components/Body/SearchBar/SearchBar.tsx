@@ -2,7 +2,7 @@ import { Box, Button, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
 
-const SearchBar = ({ movieName, setMovieName, handleClick}) => {
+const SearchBar = ({ value, setValue, handleClick}) => {
   
     return (
       <>
@@ -18,8 +18,8 @@ const SearchBar = ({ movieName, setMovieName, handleClick}) => {
         >
           <TextField
             variant="outlined"
-            value={movieName}
-            onChange={(e) => setMovieName(e.target.value)}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
             placeholder="Search movies..."
             sx={{
               width: "100%",

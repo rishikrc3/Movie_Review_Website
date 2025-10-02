@@ -5,7 +5,7 @@ export interface MovieType  {
     Year : string;
     imdbID: string;
 }
-
+//unionTypes,typeguards, passyour reponse in and lookg for a field that only exists in one 
 export interface MovieData {
   Title: string;
   Year: string;

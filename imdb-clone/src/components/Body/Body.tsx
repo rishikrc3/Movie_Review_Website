@@ -62,12 +62,13 @@ const Body = () => {
     fetchData();
   };
 
+  //usehook that returns functions that 
   return (
     <Container maxWidth={false} sx={{ py: 4, px: 2 }}>
-      <SearchBar movieName={movieName} setMovieName={setMovieName} handleClick={handleClick}/>
-      <Box sx={{ textAlign: "center", mb: 3 }}>
-        <h1>Instance: {process.env.REACT_APP_INSTANCE_NAME}</h1>
-      </Box> 
+      <SearchBar value={movieName} setValue={setMovieName} handleClick={handleClick}/>
+        <Box sx={{ textAlign: "center", mb: 3 }}>
+          <h1>Instance: {process.env.REACT_APP_INSTANCE_NAME}</h1>
+        </Box> 
       <Box
         sx={{
           display: "flex",
