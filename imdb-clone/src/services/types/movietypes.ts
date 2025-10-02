@@ -1,4 +1,4 @@
-export type MovieType = {
+export interface MovieType  {
     Poster:string;
     Title : string;
     Type : string;
@@ -6,19 +6,23 @@ export type MovieType = {
     imdbID: string;
 }
 
-export type MovieDetailType = {
+export interface MovieData {
   Title: string;
   Year: string;
+  Type: "movie" | "series";
   Poster: string;
   Plot: string;
-  Genre: string;
-  Released: string;
-  Runtime: string;
   Director: string;
+  Released: string;
   Actors: string;
+  Genre: string;
+  Language: string;
+  Country: string;
+  Awards: string;
+  Runtime: string;
+  Rated: string;
   imdbID: string;
   imdbRating: string;
-  Type: string;
-  Response: string;
-  
-};
+  imdbVotes: string;
+  totalSeasons?: string;
+}

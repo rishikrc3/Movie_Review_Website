@@ -24,3 +24,11 @@ export const searchMovies = (movieName: string) => {
     }
   });
 };
+
+export const getMovieById = (imdbID:string) =>{
+  return apiClient.get("", {
+    params: {
+      i: imdbID,
+    },
+  });
+}
