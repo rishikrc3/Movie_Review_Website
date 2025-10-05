@@ -1,10 +1,15 @@
-
+# .github/workflows/ci.yml
+# Run tests automatically on ALL branches
 
 name: Run Tests
 
 on:
   push:
+    branches:
+      - '**'  # Run on ALL branches
   pull_request:
+    branches:
+      - '**'  # Run on ALL pull requests
 
 jobs:
   test:
