@@ -1,18 +1,27 @@
-FROM node:18-alpine
+# -------- Stage 1: Build --------
+FROM node:18-alpine AS builder
 
-# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
 COPY package*.json ./
+RUN npm install
 
-# Install dependencies
-RUN npm i
+COPY . .
+RUN npm run build
 
-# Copy the rest of the application code
-COPY . . 
+
+# -------- Stage 2: Production Server --------
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install a lightweight static server
+RUN npm install -g serve
+
+# Copy only the built output from the builder stage
+COPY --from=builder /app/build ./build
 
 EXPOSE 3000
 
-# Start the application, try a multistage build for production and the load balancer
-CMD ["npm", "start"]
+# Serve the static build
+CMD ["serve", "-s", "build", "-l", "3000"]
